@@ -1,16 +1,19 @@
-*{
+* {
     margin: 0;
     padding: 0;
-    font-family:Roboto;
+    font-family: Roboto;
 }
-body{
+
+body {
     background-color: rgb(230, 230, 230);
 }
-nav{
+
+nav {
     background-color: white;
     height: 64px;
 }
-.link{
+
+.link {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -20,69 +23,94 @@ nav{
     margin: 0;
     padding: 0;
 }
-.link li a{
+
+.link li a {
     color: black;
     text-decoration: none;
 }
-.content{
+
+.content {
     display: grid;
-    grid-template-columns: repeat(2,1fr);
-    grid-template-rows: 2.2fr 0.8fr repeat(3,1fr) 0.8fr 2.5fr 0.8fr;
-    grid-template-areas: 
-    "Header Header"
-    "Row1 Row1"
-    "Row2 Row2"
-    "Row3 Row3"
-    "Row4 Row4"
-    "Row5 Row5"
-    "Row6 Row6"
-    "Footer Footer";
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 2.2fr 0.8fr repeat(3, 1fr) 0.8fr 2.5fr 0.8fr;
+    grid-template-areas:
+        "Header Header"
+        "Row1 Row1"
+        "Row2 Row2"
+        "Row3 Row3"
+        "Row4 Row4"
+        "Row5 Row5"
+        "Row6 Row6"
+        "Footer Footer";
 }
-header{
+
+header {
     grid-area: Header;
-    background-color: rgb(230, 230, 230);
+    background-color: rgb(240, 240, 240);
     padding: 7vw;
 }
-header .judul{
+
+.text-container {
+    width: 422px;
+    height: 357px;
+    gap: 0px;
+    opacity: 0px;
+}
+.box-image-header{
+    justify-self: end;
+    display: flex;
+    justify-content: end;
+}
+.btn-header {
+    background-color: black;
+    border: none;
+    width: 10vw;
+    color: white;
+    height: 3vw;
+}
+
+header .judul {
     font-size: 3rem;
     width: 20vw;
     font-weight: 500;
 }
-header .desk{
+
+header .desk {
     width: 20vw;
     font-size: 1rem;
 }
-.row1{
+
+.row1 {
     grid-area: Row1;
     background-color: black;
 }
 
-.row2{
+.row2 {
     grid-area: Row2;
     background-color: rgb(209, 209, 209);
 }
 
-.row3{
+.row3 {
     grid-area: Row3;
     background-color: rgb(173, 173, 173);
 }
 
-.row4{
+.row4 {
     grid-area: Row4;
     background-color: rgb(170, 170, 170);
 }
 
-.row5{
+.row5 {
     grid-area: Row5;
     background-color: black;
 }
 
-.row6{
+.row6 {
     grid-area: Row6;
     background-color: rgb(209, 209, 209);
 }
 
-footer{
+footer {
     grid-area: Footer;
     background-color: black;
 }
