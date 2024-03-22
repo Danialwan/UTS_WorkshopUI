@@ -27,12 +27,23 @@ nav {
 .link li a {
     color: black;
     text-decoration: none;
+    font-family: Roboto;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 21.09px;
+    text-align: left;
 }
-
+.logo{
+    font-family: Roboto;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 28.13px;
+    text-align: center;
+}
 .content {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: 2.2fr 0.8fr repeat(3, 1fr) 0.8fr 2.5fr 0.8fr;
+    grid-template-rows: 2.2fr 1.2fr repeat(3, 1fr) 1.2fr 2.5fr 1.2fr;
     grid-template-areas:
         "Header Header"
         "Row1 Row1"
@@ -47,20 +58,25 @@ nav {
 header {
     grid-area: Header;
     background-color: rgb(240, 240, 240);
-    padding: 7vw;
+    padding: 5vw 7vw;
 }
 
 .text-container {
     width: 422px;
-    height: 357px;
+    height: auto;
     gap: 0px;
     opacity: 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
-.box-image-header{
+
+.box-image-header {
     justify-self: end;
     display: flex;
     justify-content: end;
 }
+
 .btn-header {
     background-color: black;
     border: none;
@@ -70,19 +86,50 @@ header {
 }
 
 header .judul {
-    font-size: 3rem;
-    width: 20vw;
+    font-family: Roboto;
+    font-size: 56px;
     font-weight: 500;
+    line-height: 65.63px;
+    text-align: left;
 }
 
 header .desk {
-    width: 20vw;
-    font-size: 1rem;
+    font-family: Roboto;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 28.13px;
+    text-align: left;
 }
 
 .row1 {
     grid-area: Row1;
     background-color: black;
+    color: white;
+    gap: 1.5vw;
+}
+
+.Tittle-row1 {
+    font-family: Roboto;
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 33.75px;
+    text-align: center;
+}
+.Desk-row1{
+    font-family: Roboto;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 28.13px;
+    text-align: center;
+    width: 619px;
+    height: 57px;
+    top: 130px;
+    left: 411px;
+    gap: 0px;
+    opacity: 0px;
+}
+.content-row2 {
+    width: 908px;
 }
 
 .row2 {
