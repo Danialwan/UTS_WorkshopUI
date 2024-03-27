@@ -17,14 +17,15 @@
 
 <body>
     <!-- Navigation-->
-    <nav class="d-flex justify-content-center align-items-center">
+    <nav class="d-flex justify-content-center align-items-center topnav" id="myTopnav">
         <div class="container-fluid row p-2">
             <div class="col p-2" style="align-self: center;">
                 <ul class="link">
-                    <li><a href="">Link 1</a></li>
-                    <li><a href="">Link 2</a></li>
-                    <li><a href="">Link 3</a></li>
-                    <li><a href="">Link 4</a></li>
+                    <li><a href="javascript:void(0);" class="hamburger_icon" onclick="myFunction()"><i><img style="max-width: 2rem;" src="images/Hamburger_icon.svg.png" alt=""></i></a></li>
+                    <li><a href="" id="link">Link 1</a></li>
+                    <li><a href="" id="link">Link 2</a></li>
+                    <li><a href="" id="link">Link 3</a></li>
+                    <li><a href="" id="link">Link 4</a></li>
                 </ul>
             </div>
             <div class="col p-2 d-flex justify-content-center" style="align-self: center;">
@@ -129,30 +130,32 @@
             <div class="profile-image m-3"></div>
             <p class="reviewer">Maria Lopez, VP of Design at Meshery</p>
         </section>
-        <section class="Product">
-            <div class="box-title d-flex flex-column align-items-center justify-content-center">
+        <section class="Product row">
+            <div class="box-title d-flex flex-column align-items-center justify-content-center row">
                 <p class="title">Your Best Value Proposition</p>
                 <p class="desk">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,</p>
             </div>
-            <div class="content1 d-flex justify-content-center align-items-center flex-column">
-                <div class="image"></div>
-                <div class="mt-4">
-                    <p class="title">Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
-                    <a href="">Learn More</a>
+            <div class="row">
+                <div class="col content1 d-flex justify-content-center align-items-center flex-column">
+                    <div class="image"></div>
+                    <div class="mt-4">
+                        <p class="title">Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
+                        <a href="">Learn More</a>
+                    </div>
                 </div>
-            </div>
-            <div class="content2 d-flex justify-content-center align-items-center flex-column">
-                <div class="image"></div>
-                <div class="mt-4">
-                    <p class="title">Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
-                    <a href="">Learn More</a>
+                <div class="col content2 d-flex justify-content-center align-items-center flex-column">
+                    <div class="image"></div>
+                    <div class="mt-4">
+                        <p class="title">Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
+                        <a href="">Learn More</a>
+                    </div>
                 </div>
-            </div>
-            <div class="content3 d-flex justify-content-center align-items-center flex-column">
-                <div class="image"></div>
-                <div class="mt-4">
-                    <p class="title">Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
-                    <a href="">Learn More</a>
+                <div class="col content3 d-flex justify-content-center align-items-center flex-column">
+                    <div class="image"></div>
+                    <div class="mt-4">
+                        <p class="title">Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
+                        <a href="">Learn More</a>
+                    </div>
                 </div>
             </div>
         </section>
@@ -194,6 +197,16 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
+        <script>
+            function myFunction() {
+              var x = document.getElementById("myTopnav");
+              if (x.className === "d-flex justify-content-center align-items-center topnav") {
+                x.className += " responsive";
+              } else {
+                x.className = "d-flex justify-content-center align-items-center topnav";
+              }
+            }
+            </script>
 </body>
 
 </html>

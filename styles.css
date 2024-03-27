@@ -11,6 +11,45 @@ body {
 nav {
     background-color: white;
     height: 64px;
+    overflow: hidden;
+}
+
+nav .hamburger_icon {
+    display: none;
+}
+
+@media screen and (max-width: 576px) {
+    nav .link #link {
+        display: none;
+    }
+
+    nav .hamburger_icon {
+        float: right;
+        display: block !important;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .topnav.responsive {
+        position: relative;
+    }
+
+    /* .topnav.responsive .hamburger_icon {
+        position: absolute;
+        right: 0;
+        top: 0;
+    } */
+    .topnav.responsive ul {
+        top: 50px;
+        z-index: 2;
+    }
+    .topnav.responsive ul #link{
+        top: 60px;
+        z-index: 99;
+        float: none;
+        display: block;
+        text-align: left;
+      }
 }
 
 .link {
@@ -84,12 +123,13 @@ header {
     line-height: 24.26px;
     text-align: center;
     border: 1px solid black;
-    padding: 1rem ;
+    padding: 1rem;
     width: 12vw;
     background-color: black;
     color: white;
 }
-.btn-header:hover{
+
+.btn-header:hover {
     background-color: rgba(0, 0, 0, 0.5);
     color: rgb(255, 255, 255);
 }
@@ -251,7 +291,8 @@ header .desk {
     border: 1px solid black;
     padding: 1rem 3rem;
 }
-.row3 .btn-news:hover{
+
+.row3 .btn-news:hover {
     background-color: rgba(0, 0, 0, 0.3);
     border: none;
     /* color: white; */
@@ -363,12 +404,12 @@ header .desk {
 .Product {
     grid-area: Product;
     background-color: rgb(240, 240, 240);
-    display: grid;
+    /* display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(2, auto);
     grid-template-areas:
         "Title Title Title"
-        "Content1 Content2 Content3";
+        "Content1 Content2 Content3"; */
     padding: 4vw;
 }
 
