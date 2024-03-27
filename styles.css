@@ -1,3 +1,8 @@
+/* Color Palatte
+#160c0c Brown
+#d1894e Caramel
+#fffcee flatWhite */
+
 * {
     margin: 0;
     padding: 0;
@@ -5,13 +10,16 @@
 }
 
 body {
-    background-color: rgb(230, 230, 230);
+    background-color: #160c0c;
 }
 
 nav {
-    background-color: white;
+    background-color: #160c0c00;
     height: 64px;
     overflow: hidden;
+    position: absolute;
+    width: 100vw;
+    top: 0;
 }
 
 nav .hamburger_icon {
@@ -19,10 +27,19 @@ nav .hamburger_icon {
 }
 
 .menu-responsive {
-    /* display: none; */
+    position: absolute;
+    width: 100vw;
+    background-color: #d1894e;
+    transition: 0.5 all ease;
+}
+.menu-responsive li:hover{
+    background-color: #160c0c;
 }
 
-@media screen and (max-width: 576px) {
+@media screen and (max-width: 992px) {
+    .menu-responsive {
+    top: 8vw;
+    }
     nav .link #link {
         display: none;
     }
@@ -31,29 +48,37 @@ nav .hamburger_icon {
         float: right;
         display: block !important;
     }
-}
 
-@media screen and (max-width: 576px) {
     .topnav.responsive {
         position: relative;
     }
 
-    /* .topnav.responsive .hamburger_icon {
-        position: absolute;
-        right: 0;
-        top: 0;
-    } */
     .topnav.responsive ul {
         top: 50px;
         z-index: 2;
     }
+}
 
-    .topnav.responsive ul #link {
-        /* top: 60px;
-        z-index: 99;
-        float: none;
-        display: block;
-        text-align: left; */
+@media screen and (max-width: 576px) {
+    .menu-responsive {
+        top: 16vw;
+    }
+    nav .link #link {
+        display: none;
+    }
+
+    nav .hamburger_icon {
+        float: right;
+        display: block !important;
+    }
+
+    .topnav.responsive {
+        position: relative;
+    }
+
+    .topnav.responsive ul {
+        top: 50px;
+        z-index: 2;
     }
 }
 
@@ -69,13 +94,19 @@ nav .hamburger_icon {
 }
 
 .link li a {
-    color: black;
+    color: #fffcee77;
     text-decoration: none;
     font-family: Roboto;
-    font-size: 18px;
-    font-weight: 400;
+    font-size: 15px;
+    font-weight: 600;
     line-height: 21.09px;
     text-align: left;
+    text-transform: uppercase;
+}
+
+.link li a:hover {
+    color: #fffcee;
+    font-weight: 700;
 }
 
 .link-responsive {
@@ -91,7 +122,7 @@ nav .hamburger_icon {
 }
 
 .link-responsive li a {
-    color: black;
+    color: #fffcee;
     text-decoration: none;
 }
 
@@ -101,15 +132,24 @@ nav .hamburger_icon {
     font-weight: 700;
     line-height: 28.13px;
     text-align: center;
+    color: #fffcec;
 }
 
 .btn-signup {
-    width: 6vw;
-    background-color: black;
+    width: 10vw;
+    background-color: #d1894e00;
     border: none;
-    color: white;
+    color: #fffcee;
+    font-weight: 600;
+    border: 1px solid #d1894e;
 }
 
+.btn-signup:hover {
+    background-color: #d1894e;
+    /* border: none; */
+    /* border: 1px solid ; */
+    color: #fffcee;
+}
 
 .content {
     display: grid;
@@ -124,17 +164,36 @@ nav .hamburger_icon {
         "Footer Footer";
 }
 
-@media screen and (max-width: 576px) {
+@media screen and (max-width: 992px) {
     .btn-signup {
         width: 20vw;
-        background-color: black;
         border: none;
     }
 
     .content {
         display: grid;
         grid-template-columns: 1fr;
-        grid-template-rows: 0.6fr 0.6fr 3fr 0.8fr 1.7fr 0.8fr;
+        grid-template-rows: 0.45fr 0.4fr 1.2fr 0.3fr 1.7fr 0.3fr;
+        grid-template-areas:
+            "Header Header"
+            "Row1 Row1"
+            "News News"
+            "Row5 Row5"
+            "Product Product"
+            "Footer Footer";
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .btn-signup {
+        width: 30vw;
+        font-size: 12px;
+    }
+
+    .content {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 0.5fr 0.6fr 1.5fr 0.5fr 1.7fr 0.5fr;
         grid-template-areas:
             "Header Header"
             "Row1 Row1"
@@ -147,29 +206,26 @@ nav .hamburger_icon {
 
 header {
     grid-area: Header;
-    background-color: rgb(240, 240, 240);
+    background-image: url('images/headerBackground.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     padding: 5vw 7vw;
     display: flex;
+    justify-content: center;
     align-items: center;
 }
 
-.header {
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-areas:
-        "text-container box-image-header"
-}
 
-@media screen and (max-width: 576px) {
-    .header {
-        grid-template-columns: 1fr;
-        grid-template-rows: repeat(2, 1fr);
-        grid-template-areas:
-            "box-image-header"
-            "text-container";
-    }
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 5vw;
 }
 
 .text-container {
+    color: #fffcee;
     grid-area: text-container;
     width: 422px;
     height: auto;
@@ -187,41 +243,100 @@ header {
     justify-content: end;
 }
 
+.box-image-header .image {
+    width: 42vw;
+    height: 23vw;
+    background-image: url('images/headerImage.jpeg');
+    background-size: 100%;
+    background-position: center;
+    transition: 0.3s all ease-out;
+    background-repeat: no-repeat;
+    border-radius: 20px;
+}
+
+.box-image-header .image:hover {
+
+    background-size: 110%;
+}
+
 .btn-header {
     font-family: Roboto;
     font-size: 18px;
     font-weight: 400;
     line-height: 24.26px;
     text-align: center;
-    border: 1px solid black;
+    border: 1px solid #d1894e;
     padding: 1rem;
     width: 12vw;
     background-color: black;
-    color: white;
+    color: #fffcee;
 }
 
-@media screen and (max-width: 576px) {
+.btn-header:hover {
+    border: 1px solid #d1894e;
+    background-color: #d1894e;
+    color: #160c0c;
+}
+
+@media screen and (max-width: 992px) {
+    .box-image-header .image {
+        width: 80vw;
+        height: 45vw;
+        background-image: url('images/headerImage.jpeg');
+        background-size: 100%;
+        background-position: center;
+        transition: 0.3s all ease-out;
+        background-repeat: no-repeat;
+        border-radius: 20px;
+    }
+
     .header {
-        grid-template-columns: 1fr;
-        grid-template-rows: repeat(2, 1fr);
-        grid-template-areas:
-            "box-image-header"
-            "text-container";
+        display: flex;
+        flex-direction: column-reverse;
     }
 
     .btn-header {
         width: 40vw;
     }
 
-    .box-image-header {
-        display: none;
+    .text-container {
+        grid-area: text-container;
+        width: 80vw;
+        height: auto;
+        gap: 0px;
+        opacity: 0px;
+        display: flex;
+        justify-content: start;
+        align-items: center;
     }
 }
 
-.btn-header:hover {
-    background-color: rgba(0, 0, 0, 0.5);
-    color: rgb(255, 255, 255);
+@media screen and (max-width: 576px) {
+    .box-image-header .image {
+    display: none;
+    }
+    .header {
+        display: flex;
+        flex-direction: column-reverse;
+    }
+
+    .btn-header {
+        width: 40vw;
+    }
+
+    .text-container {
+        margin-top: 20vw;
+        grid-area: text-container;
+        width: 80vw;
+        height: auto;
+        gap: 0px;
+        opacity: 0px;
+        display: flex;
+        justify-content: start;
+        align-items: center;
+    }
 }
+
 
 header .judul {
     font-family: Roboto;
@@ -237,6 +352,26 @@ header .desk {
     font-weight: 400;
     line-height: 28.13px;
     text-align: left;
+}
+
+@media screen and (max-width: 992px) {
+    header .judul {
+        width: 90vw;
+        font-family: Roboto;
+        font-size: 55px;
+        font-weight: 500;
+        line-height: 65.63px;
+        text-align: left;
+    }
+
+    header .desk {
+        width: 80vw;
+        font-family: Roboto;
+        font-size: 20px;
+        font-weight: 400;
+        line-height: 28.13px;
+        text-align: left;
+    }
 }
 
 @media screen and (max-width: 576px) {
@@ -259,10 +394,11 @@ header .desk {
     }
 }
 
+
 .row1 {
     grid-area: Row1;
     background-color: black;
-    color: white;
+    color: #fffcee;
     gap: 1.5vw;
 }
 
@@ -281,17 +417,33 @@ header .desk {
     line-height: 28.13px;
     text-align: center;
     width: 619px;
-    height: 57px;
+    height: auto;
     opacity: 0px;
+}
+
+.row1 .image {
+    width: 19vw;
+    height: 5vw;
+    background-size: 100%;
+    background-position: center;
+    filter: grayscale(100);
+    transition: 0.5s all ease;
+}
+
+.row1 .image:hover {
+    background-size: 110%;
+    background-position: center;
+    filter: grayscale(0);
 }
 
 .content-row2 {
     width: 908px;
     display: flex;
     justify-content: space-between;
+    gap: 2vw;
 }
 
-@media screen and (max-width: 576px) {
+@media screen and (max-width: 992px) {
     .Tittle-row1 {
         font-family: Roboto;
         font-size: 24px;
@@ -312,13 +464,22 @@ header .desk {
     }
 
     .content-row2 {
-        margin-top: 20vw;
+        margin-top: 10vw;
         width: 90vw;
-        gap: 10vw;
+        gap: 2vw;
         justify-content: space-around;
         flex-direction: row;
         flex-wrap: wrap;
         height: auto;
+    }
+
+    .row1 .image {
+        width: 30vw;
+        height: 14vw;
+        background-size: 100%;
+        background-position: center;
+        filter: grayscale(100);
+        transition: 0.5s all ease;
     }
 }
 
@@ -333,18 +494,58 @@ header .desk {
         "Row4 Row4";
 }
 
+@media screen and (max-width: 576px) {
+    .Tittle-row1 {
+        font-family: Roboto;
+        font-size: 24px;
+        font-weight: 400;
+        line-height: 33.75px;
+        text-align: center;
+    }
+
+    .Desk-row1 {
+        font-family: Roboto;
+        font-size: 20px;
+        font-weight: 400;
+        line-height: 28.13px;
+        text-align: center;
+        width: 80vw;
+        height: auto;
+        opacity: 0px;
+    }
+
+    .content-row2 {
+        margin-top: 20vw;
+        width: 90vw;
+        gap: 12vw;
+        justify-content: space-around;
+        flex-direction: row;
+        flex-wrap: wrap;
+        height: auto;
+    }
+}
+
+
 .news .image-double-section {
     position: absolute;
-    right: 15vw;
-    padding-top: 5vw;
+    right: 5vw;
+    width: 40vw;
+    height: 50vw;
+    /* padding-top: 5vw; */
+    margin-top: 2vw;
+    background-image: url('images/karungKopi.png');
+    background-size: cover;
+    background-position: center;
+    /* background-color: #fffcee; */
 }
 
 .row2 {
     grid-area: Row2;
-    background-color: rgb(240, 240, 240);
+    background-color: #160c0c;
     display: flex;
     align-items: center;
     padding: 5vw 12vw;
+    color: #fffcee;
 }
 
 .row2 .box-content {}
@@ -356,7 +557,7 @@ header .desk {
     line-height: 28.13px;
     text-align: left;
     width: 211px;
-    height: 29px;
+    height: auto;
 }
 
 .row2 .desk {
@@ -366,7 +567,7 @@ header .desk {
     line-height: 28.13px;
     text-align: left;
     width: 422px;
-    height: 85px;
+    height: auto;
 
 }
 
@@ -386,6 +587,10 @@ header .desk {
 
 .image-Row3 .image {
     background-color: rgb(240, 240, 240);
+    background-image: url('images/bean.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
     width: 320px;
     height: 360px;
     gap: 0px;
@@ -396,7 +601,8 @@ header .desk {
 
 .row3 {
     grid-area: Row3;
-    background-color: rgb(240, 240, 240);
+    background-color: #160c0c;
+    color: #fffcee;
 }
 
 .row3 .box-content {
@@ -431,26 +637,26 @@ header .desk {
     font-weight: 400;
     line-height: 24.26px;
     text-align: center;
-    border: 1px solid black;
+    border: 1px solid #d1894e;
     padding: 1rem 3rem;
+    color: #fffcee;
 }
 
 .row3 .btn-news:hover {
-    background-color: rgba(0, 0, 0, 0.3);
+    background-color: #d1894e;
+    color: #160c0c;
+    font-weight: 500;
     border: none;
     /* color: white; */
 }
 
 .row4 {
     grid-area: Row4;
-    background-color: rgb(240, 240, 240);
+    background-color: #160c0c;
     gap: 10vw;
     padding: 7vw;
+    color: #fffcee;
 }
-
-.row4 .box-title {}
-
-.row4 .box-image {}
 
 .row4 .box-title .title {
     font-family: Roboto;
@@ -469,7 +675,7 @@ header .desk {
     line-height: 25.31px;
     text-align: left;
     width: 470px;
-    height: 76px;
+    height: auto;
     opacity: 0px;
 
 }
@@ -481,7 +687,7 @@ header .desk {
     line-height: 19.69px;
     text-align: left;
     width: 470px;
-    height: 40px;
+    height: auto;
     opacity: 0px;
     color: rgba(144, 144, 144, 0.8)
 }
@@ -492,8 +698,8 @@ header .desk {
     font-weight: 400;
     line-height: 19.03px;
     text-align: left;
-    width: 181px;
-    height: 20px;
+    width: 300px;
+    height: auto;
     opacity: 0px;
     align-self: center;
     padding: 0;
@@ -505,19 +711,24 @@ header .desk {
     height: 2rem;
     background-color: black;
     border-radius: 1rem;
+    background-image: url('images/wordbrewcup.jpeg');
+    background-size: 200%;
+    background-position: center;
 }
 
-@media screen and (max-width: 576px) {
+.row4 .box-image .image {
+    width: 32vw;
+    height: 18vw;
+    background-color: aqua;
+    background-image: url('images/wordbrewcup.jpeg');
+    background-position: center;
+    background-size: cover;
+}
+
+@media screen and (max-width: 992px) {
     .news {
         display: flex;
         flex-direction: column;
-        /* grid-template-columns: 1fr;
-        grid-template-rows: repeat(4, 0.8fr);
-        grid-template-areas:
-            "Row2"
-            "image-Row3"
-            "Row3"
-            "Row4"; */
     }
 
     .news .image-double-section {
@@ -525,7 +736,191 @@ header .desk {
     }
 
     .row2 {
-        background-color: rgb(240, 240, 240);
+        display: flex;
+        align-items: center;
+        padding: 10vw;
+        margin: 0;
+    }
+
+    .row2 .title {
+        font-family: Roboto;
+        font-size: 20px;
+        font-weight: 700;
+        line-height: 28.13px;
+        text-align: left;
+        width: 70vw;
+        height: 29px;
+    }
+
+    .row2 .desk {
+        font-family: Roboto;
+        font-size: 20px;
+        font-weight: 400;
+        line-height: 28.13px;
+        text-align: left;
+        width: 80vw;
+        /* height: 85px; */
+    }
+
+    .row2 ul {
+        margin-top: 0;
+        font-family: Roboto;
+        font-size: 20px;
+        font-weight: 400;
+        line-height: 28.13px;
+        text-align: left;
+    }
+
+    .image-Row3 {
+        grid-area: none;
+        padding: 10vw;
+    }
+
+    .image-Row3 .image {
+
+        width: 62vw;
+        height: 66vw;
+        gap: 0px;
+        border-radius: 8px;
+        opacity: 0px;
+        /* margin: 8vw; */
+    }
+
+    .row3 {
+        grid-area: none;
+        padding: 10vw;
+    }
+
+    .row3 .box-content {
+        margin-left: 0;
+    }
+
+    .row3 .title {
+        font-family: Roboto;
+        font-size: 24px;
+        font-weight: 700;
+        line-height: 33.75px;
+        text-align: left;
+        width: 70vw;
+        height: auto;
+        opacity: 0px;
+    }
+
+    .row3 .desk {
+        font-family: Roboto;
+        font-size: 20px;
+        font-weight: 400;
+        line-height: 28.13px;
+        text-align: left;
+        width: 80vw;
+        height: auto;
+        opacity: 0px;
+    }
+
+    .row3 .btn-news {
+        font-family: Roboto;
+        font-size: 18px;
+        font-weight: 400;
+        line-height: 24.26px;
+        text-align: center;
+
+        padding: 1rem 3rem;
+    }
+
+    .row3 .btn-news:hover {
+
+        border: none;
+        /* color: white; */
+    }
+
+    .row4 {
+        grid-area: none;
+        display: flex;
+        flex-direction: column-reverse;
+
+        gap: 0;
+        padding: 10vw;
+        padding-top: 0;
+    }
+
+    .row4 .box-title {
+        width: 100vw;
+        padding: 10vw;
+    }
+
+    .row4 .box-title .title {
+        font-family: Roboto;
+        font-size: 32px;
+        font-weight: 400;
+        line-height: 37.5px;
+        text-align: left;
+        width: 80vw;
+        height: auto;
+    }
+
+    .row4 .box-title .desk {
+        font-family: Roboto;
+        font-size: 18px;
+        font-weight: 400;
+        line-height: 25.31px;
+        text-align: left;
+        width: 80vw;
+        height: auto;
+        opacity: 0px;
+
+    }
+
+    .row4 .box-title .comment {
+        font-family: Roboto;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 19.69px;
+        text-align: left;
+        width: 80vw;
+        height: auto;
+        opacity: 0px;
+        color: rgba(144, 144, 144, 0.8)
+    }
+
+    .row4 .box-title .reviewer {
+        font-family: Roboto;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 19.03px;
+        text-align: left;
+        width: 181px;
+        height: 20px;
+        opacity: 0px;
+        align-self: center;
+        padding: 0;
+        margin: 0;
+    }
+
+    .row4 .circle {
+        width: 2rem;
+        height: 2rem;
+
+        border-radius: 1rem;
+    }
+
+    .row4 .box-image .image {
+        width: 80vw;
+        height: 50vw;
+
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .news {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .news .image-double-section {
+        display: none;
+    }
+
+    .row2 {
         display: flex;
         align-items: center;
         padding: 10vw;
@@ -563,12 +958,10 @@ header .desk {
 
     .image-Row3 {
         grid-area: none;
-        background-color: black;
         padding: 20vw;
     }
 
     .image-Row3 .image {
-        background-color: rgb(240, 240, 240);
         width: 62vw;
         height: 66vw;
         gap: 0px;
@@ -580,7 +973,6 @@ header .desk {
     .row3 {
         grid-area: none;
         padding: 10vw;
-        background-color: rgb(240, 240, 240);
     }
 
     .row3 .box-content {
@@ -615,12 +1007,10 @@ header .desk {
         font-weight: 400;
         line-height: 24.26px;
         text-align: center;
-        border: 1px solid black;
         padding: 1rem 3rem;
     }
 
     .row3 .btn-news:hover {
-        background-color: rgba(0, 0, 0, 0.3);
         border: none;
         /* color: white; */
     }
@@ -629,8 +1019,12 @@ header .desk {
         grid-area: none;
         display: flex;
         flex-direction: column-reverse;
-        background-color: rgb(240, 240, 240);
         gap: 0;
+        padding: 10vw;
+    }
+
+    .row4 .box-title {
+        width: 100vw;
         padding: 10vw;
     }
 
@@ -641,7 +1035,7 @@ header .desk {
         line-height: 37.5px;
         text-align: left;
         width: 80vw;
-        height: 38px;
+        height: auto;
     }
 
     .row4 .box-title .desk {
@@ -650,8 +1044,8 @@ header .desk {
         font-weight: 400;
         line-height: 25.31px;
         text-align: left;
-        width: 470px;
-        height: 76px;
+        width: 80vw;
+        height: auto;
         opacity: 0px;
 
     }
@@ -662,10 +1056,9 @@ header .desk {
         font-weight: 400;
         line-height: 19.69px;
         text-align: left;
-        width: 470px;
-        height: 40px;
+        width: 80vw;
+        height: auto;
         opacity: 0px;
-        color: rgba(144, 144, 144, 0.8)
     }
 
     .row4 .box-title .reviewer {
@@ -685,18 +1078,20 @@ header .desk {
     .row4 .circle {
         width: 2rem;
         height: 2rem;
-        background-color: black;
         border-radius: 1rem;
     }
-    .box-image{
-        max-width: 10vw;
+
+    .row4 .box-image .image {
+        width: 70vw;
+        height: 50vw;
     }
 }
+
 
 .row5 {
     grid-area: Row5;
     background-color: black;
-    color: white;
+    color: #fffcee;
 }
 
 .row5 .comment {
@@ -706,7 +1101,7 @@ header .desk {
     line-height: 32.62px;
     text-align: center;
     width: 981px;
-    height: 33px;
+    height: auto;
     opacity: 0px;
 
 }
@@ -717,6 +1112,9 @@ header .desk {
     border-radius: 20px;
     background-color: white;
     opacity: 0px;
+    background-image: url('images/wordbrewcup.jpeg');
+    background-position: center;
+    background-size: 200%;
 }
 
 .row5 .reviewer {
@@ -730,16 +1128,77 @@ header .desk {
     opacity: 0px;
 }
 
+@media screen and (max-width: 992px) {
+    .row5 .comment {
+        font-family: Roboto;
+        font-size: 24px;
+        font-weight: 400;
+        line-height: 32.62px;
+        text-align: center;
+        width: 80vw;
+        height: auto;
+        opacity: 0px;
+
+    }
+
+    .row5 .profile-image {
+        width: 40px;
+        height: 40px;
+        border-radius: 20px;
+        opacity: 0px;
+    }
+
+    .row5 .reviewer {
+        font-family: Roboto;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 19.03px;
+        text-align: center;
+        width: 80vw;
+        height: auto;
+        gap: 0px;
+        opacity: 0px;
+    }
+}
+@media screen and (max-width: 576px) {
+    .row5 .comment {
+        font-family: Roboto;
+        font-size: 24px;
+        font-weight: 400;
+        line-height: 32.62px;
+        text-align: center;
+        width: 80vw;
+        height: auto;
+        opacity: 0px;
+
+    }
+
+    .row5 .profile-image {
+        width: 40px;
+        height: 40px;
+        border-radius: 20px;
+        opacity: 0px;
+    }
+
+    .row5 .reviewer {
+        font-family: Roboto;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 19.03px;
+        text-align: center;
+        width: 80vw;
+        height: auto;
+        gap: 0px;
+        opacity: 0px;
+    }
+}
+
+
 .Product {
     grid-area: Product;
-    background-color: rgb(240, 240, 240);
-    /* display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(2, auto);
-    grid-template-areas:
-        "Title Title Title"
-        "Content1 Content2 Content3"; */
+    background-color: #160c0c;
     padding: 4vw;
+    color: #fffcee;
 }
 
 .Product .box-title {
@@ -779,11 +1238,11 @@ header .desk {
     gap: 0px;
     opacity: 0px;
     text-decoration: none;
-    color: black;
+    color: #fffcee;
 }
 
 .Product a:hover {
-    color: rgba(0, 0, 0, 0.5);
+    color: #d1894e;
 }
 
 .Product .image {
@@ -792,13 +1251,15 @@ header .desk {
     gap: 0px;
     opacity: 0px;
     background-color: black;
+    background-position: center;
+    background-size: cover;
 }
 
 .Product .content1 {
     grid-area: Content1;
 }
 
-.Product .content1 p {
+.Product p {
     margin: 0;
     font-family: Roboto;
     font-size: 24px;
@@ -814,32 +1275,150 @@ header .desk {
     grid-area: Content2;
 }
 
-.Product .content2 p {
-    margin: 0;
-    font-family: Roboto;
-    font-size: 24px;
-    font-weight: 400;
-    line-height: 32.62px;
-    text-align: left;
-    width: 370px;
-    gap: 0px;
-    opacity: 0px;
-}
-
 .Product .content3 {
     grid-area: Content3;
 }
 
-.Product .content3 p {
-    margin: 0;
-    font-family: Roboto;
-    font-size: 24px;
-    font-weight: 400;
-    line-height: 32.62px;
-    text-align: left;
-    width: 370px;
-    gap: 0px;
-    opacity: 0px;
+@media screen and (max-width: 992px) {
+    .Product {
+        grid-area: Product;
+        display: flex;
+        padding: 10vw;
+        justify-content: center;
+    }
+
+    .Product .box-title {
+        grid-area: Title;
+    }
+
+    .Product .box-title .title {
+        font-family: Roboto;
+        font-size: 24px;
+        font-weight: 400;
+        line-height: 28.13px;
+        text-align: center;
+        width: 80vw;
+        height: auto;
+        opacity: 0px;
+    }
+
+    .Product .box-title .desk {
+        font-family: Roboto;
+        font-size: 18px;
+        font-weight: 400;
+        line-height: 27.42px;
+        text-align: center;
+        width: 80vw;
+        height: auto;
+        opacity: 0px;
+    }
+
+    .Product a {
+        font-family: Roboto;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 19.03px;
+        text-align: left;
+        width: 80vw;
+        height: auto;
+        gap: 0px;
+        opacity: 0px;
+        text-decoration: none;
+    }
+
+    .Product .box-content {
+        margin: 10vw 0;
+    }
+
+    .Product .image {
+        width: 80vw;
+        height: 80vw;
+        gap: 0px;
+        opacity: 0px;
+    }
+
+    .Product p {
+        margin: 0;
+        font-family: Roboto;
+        font-size: 24px;
+        font-weight: 400;
+        line-height: 32.62px;
+        text-align: left;
+        width: 80vw;
+        gap: 0px;
+        opacity: 0px;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .Product {
+        grid-area: Product;
+        display: flex;
+        padding: 10vw;
+        justify-content: center;
+    }
+
+    .Product .box-title {
+        grid-area: Title;
+    }
+
+    .Product .box-title .title {
+        font-family: Roboto;
+        font-size: 24px;
+        font-weight: 400;
+        line-height: 28.13px;
+        text-align: center;
+        width: 80vw;
+        height: auto;
+        opacity: 0px;
+    }
+
+    .Product .box-title .desk {
+        font-family: Roboto;
+        font-size: 18px;
+        font-weight: 400;
+        line-height: 27.42px;
+        text-align: center;
+        width: 80vw;
+        height: auto;
+        opacity: 0px;
+    }
+
+    .Product a {
+        font-family: Roboto;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 19.03px;
+        text-align: left;
+        width: 80vw;
+        height: auto;
+        gap: 0px;
+        opacity: 0px;
+        text-decoration: none;
+    }
+
+    .Product .box-content {
+        margin: 10vw 0;
+    }
+
+    .Product .image {
+        width: 80vw;
+        height: 80vw;
+        gap: 0px;
+        opacity: 0px;
+    }
+
+    .Product p {
+        margin: 0;
+        font-family: Roboto;
+        font-size: 24px;
+        font-weight: 400;
+        line-height: 32.62px;
+        text-align: left;
+        width: 80vw;
+        gap: 0px;
+        opacity: 0px;
+    }
 }
 
 footer {
@@ -957,4 +1536,252 @@ footer .hyperlink ul li a {
     gap: 0px;
     opacity: 0px;
 
+}
+
+@media screen and (max-width: 576px) {
+
+    footer {
+        grid-area: Footer;
+        background-color: black;
+        display: flex;
+        color: white;
+        padding: 10vw;
+        gap: 4vw;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    footer .logo {
+        margin-bottom: 10vw;
+    }
+
+    footer .box-desk {
+        border-right: none;
+        border-bottom: 1px solid white;
+        padding: 0;
+        /* height: 13vw; */
+    }
+
+    footer .box-desk .title {
+        font-family: Roboto;
+        font-size: 14px;
+        font-weight: 700;
+        line-height: 19.69px;
+        text-align: left;
+        width: 80vw;
+        height: auto;
+        gap: 0px;
+        opacity: 0px;
+    }
+
+    footer .box-desk .sub-title {
+        font-family: Roboto;
+        font-size: 24px;
+        font-weight: 400;
+        line-height: 33.75px;
+        text-align: left;
+        width: 80vw;
+        height: auto;
+        gap: 0px;
+        opacity: 0px;
+
+    }
+
+    footer .box-desk .desk {
+        font-family: Roboto;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 19.69px;
+        text-align: left;
+        width: 80vw;
+        height: auto;
+        gap: 0px;
+        opacity: 0px;
+    }
+
+    footer .hyperlink ul {
+        list-style: none;
+        padding: 0;
+        margin-right: 6vw;
+    }
+
+    footer .hyperlink ul b {
+        font-family: Roboto;
+        font-size: 14px;
+        font-weight: 700;
+        line-height: 19.69px;
+        text-align: left;
+        width: 50px;
+        height: 20px;
+        gap: 0px;
+        opacity: 0px;
+
+    }
+
+    footer .hyperlink ul li {
+        margin-top: 0.2vw;
+    }
+
+    footer .hyperlink ul li a {
+        font-family: Roboto;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 19.69px;
+        text-align: left;
+        width: 49px;
+        height: 20px;
+        gap: 0px;
+        opacity: 0px;
+
+    }
+
+    .year {
+        font-family: Roboto;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 19.69px;
+        text-align: center;
+        width: 96px;
+        height: 20px;
+        gap: 0px;
+        opacity: 0px;
+
+    }
+
+    .privacy {
+        font-family: Roboto;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 19.69px;
+        text-align: center;
+        width: 103px;
+        height: 20px;
+        gap: 0px;
+        opacity: 0px;
+
+    }
+}
+
+@media screen and (max-width: 992px) {
+
+    footer {
+        grid-area: Footer;
+        background-color: black;
+        display: flex;
+        color: white;
+        padding: 10vw;
+        gap: 4vw;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    footer .logo {
+        margin-bottom: 10vw;
+    }
+
+    footer .box-desk {
+        border-right: none;
+        border-bottom: 1px solid white;
+        padding: 0;
+        /* height: 13vw; */
+    }
+
+    footer .box-desk .title {
+        font-family: Roboto;
+        font-size: 14px;
+        font-weight: 700;
+        line-height: 19.69px;
+        text-align: left;
+        width: 80vw;
+        height: auto;
+        gap: 0px;
+        opacity: 0px;
+    }
+
+    footer .box-desk .sub-title {
+        font-family: Roboto;
+        font-size: 24px;
+        font-weight: 400;
+        line-height: 33.75px;
+        text-align: left;
+        width: 80vw;
+        height: auto;
+        gap: 0px;
+        opacity: 0px;
+
+    }
+
+    footer .box-desk .desk {
+        font-family: Roboto;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 19.69px;
+        text-align: left;
+        width: 80vw;
+        height: auto;
+        gap: 0px;
+        opacity: 0px;
+    }
+
+    footer .hyperlink ul {
+        list-style: none;
+        padding: 0;
+        margin-right: 6vw;
+    }
+
+    footer .hyperlink ul b {
+        font-family: Roboto;
+        font-size: 14px;
+        font-weight: 700;
+        line-height: 19.69px;
+        text-align: left;
+        width: 50px;
+        height: 20px;
+        gap: 0px;
+        opacity: 0px;
+
+    }
+
+    footer .hyperlink ul li {
+        margin-top: 0.2vw;
+    }
+
+    footer .hyperlink ul li a {
+        font-family: Roboto;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 19.69px;
+        text-align: left;
+        width: 49px;
+        height: 20px;
+        gap: 0px;
+        opacity: 0px;
+
+    }
+
+    .year {
+        font-family: Roboto;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 19.69px;
+        text-align: center;
+        width: 96px;
+        height: 20px;
+        gap: 0px;
+        opacity: 0px;
+
+    }
+
+    .privacy {
+        font-family: Roboto;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 19.69px;
+        text-align: center;
+        width: 103px;
+        height: 20px;
+        gap: 0px;
+        opacity: 0px;
+
+    }
 }
